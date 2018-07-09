@@ -24,6 +24,8 @@
 		0CB3DC7C20F3CA830012A12F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB3DC7B20F3CA830012A12F /* GameViewController.swift */; };
 		0CB3DC8120F3CA830012A12F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CB3DC8020F3CA830012A12F /* Assets.xcassets */; };
 		0CB3DC8420F3CA830012A12F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CB3DC8220F3CA830012A12F /* LaunchScreen.storyboard */; };
+		0CB3DC8C20F3E03B0012A12F /* SCKTEffectsSpriteKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0CB3DC4820F3BF640012A12F /* SCKTEffectsSpriteKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0CB3DC9020F3E0810012A12F /* SCKTEffectsCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0CB3DC2E20F3AA160012A12F /* SCKTEffectsCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,20 @@
 			remoteInfo = SCKTEffectsSpriteKit;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0CB3DC8B20F3E0310012A12F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0CB3DC8C20F3E03B0012A12F /* SCKTEffectsSpriteKit.framework in CopyFiles */,
+				0CB3DC9020F3E0810012A12F /* SCKTEffectsCore.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0CB3DC2E20F3AA160012A12F /* SCKTEffectsCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCKTEffectsCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +292,7 @@
 				0CB3DC6D20F3CA820012A12F /* Sources */,
 				0CB3DC6E20F3CA820012A12F /* Frameworks */,
 				0CB3DC6F20F3CA820012A12F /* Resources */,
+				0CB3DC8B20F3E0310012A12F /* CopyFiles */,
 			);
 			buildRules = (
 			);

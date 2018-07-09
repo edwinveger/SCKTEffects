@@ -12,47 +12,73 @@ import SCKTEffectsSpriteKit
 
 class GameScene: SKScene {
     
-    private let label = SKLabelNode()
+    var counter = 0
     
     private func touchDown(at point: CGPoint) {
-        let node = SKSpriteNode(color: .green, size: .init(width: 32, height: 32))
+        let color: UIColor
+        
+        switch counter % 3 {
+        case 0:
+            color = .green
+        case 1:
+            color = .blue
+        default:
+            color = .red
+        }
+        
+        let node = SKSpriteNode(color: color, size: .init(width: 32, height: 32))
         node.position = point
         addChild(node)
         
-        let effect = SKTMoveEffect<SKNode>(
-            node: node,
-            duration: 1.5,
-            startPosition: point,
-            endPosition: point + CGPoint(x: 100, y: 100)
-        )
-        effect.timingFunction =
-            point.x.truncatingRemainder(dividingBy: 2.0) == 0 ?
-                SKTTimingFunction.bounceEaseOut :
-                SKTTimingFunction.elasticEaseOut
+        let effect: SKTEffect<SKNode>
         
-        let scaleUp = SKTScaleEffect<SKNode>(
-            node: node,
-            duration: 1.5,
-            startScale: node.scale,
-            endScale: CGPoint(x: 2.1, y: 3.25)
-        )
+        switch counter % 3 {
+        case 0:
+            effect = SKTMoveEffect(
+                node: node,
+                duration: 1.5,
+                from: node.position,
+                to: CGPoint(x: size.width / 2, y: size.height / 2)
+            )
+        case 1:
+            effect = SKTRotateEffect(
+                node: node,
+                duration: 2.5,
+                from: node.rotation,
+                to: .pi
+            )
+        default:
+            effect = SKTScaleEffect(
+                node: node,
+                duration: 1.0,
+                from: node.scale,
+                to: node.scale * 2.3
+            )
+        }
         
-        scaleUp.timingFunction = SKTTimingFunction.elasticEaseOut
+        switch counter % 4 {
+        case 0:
+            effect.timingFunction = SKTTimingFunction.bounceEaseOut
+        case 1:
+            effect.timingFunction = SKTTimingFunction.elasticEaseOut
+        case 2:
+            effect.timingFunction = SKTTimingFunction.sineEaseInOut
+        default:
+            effect.timingFunction = SKTTimingFunction.cubicEaseInOut
+        }
         
         node.run(
             .sequence([
                 effect.asAction(),
-                scaleUp.asAction(),
+                .fadeOut(withDuration: 1.0),
                 .removeFromParent()
                 ])
         )
+        
+        counter += 1
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(at: t.location(in: self)) }
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
     }
 }

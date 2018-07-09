@@ -17,6 +17,10 @@ class GameViewController: UIViewController {
     
     override func loadView() {
         view = skView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         // Set the scale mode to scale to fit the window
         scene.scaleMode = .aspectFill
@@ -27,17 +31,11 @@ class GameViewController: UIViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         scene.size = view.bounds.size
-        
     }
     
     override var prefersStatusBarHidden: Bool {

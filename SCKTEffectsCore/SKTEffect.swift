@@ -43,10 +43,10 @@ public class SKTMoveEffect<T: EffectNode>: SKTEffect<T> {
     var delta: T.Position
     var previousPosition: T.Position
     
-    public init(node: T, duration: TimeInterval, startPosition: T.Position, endPosition: T.Position) {
+    public init(node: T, duration: TimeInterval, from start: T.Position, to end: T.Position) {
         previousPosition = node.position
-        self.startPosition = startPosition
-        delta = endPosition - startPosition
+        startPosition = start
+        delta = end - start
         
         super.init(node: node, duration: duration)
     }
@@ -66,10 +66,10 @@ public class SKTScaleEffect<T: EffectNode>: SKTEffect<T> {
     var delta: T.Scale
     var previousScale: T.Scale
     
-    public init(node: T, duration: TimeInterval, startScale: T.Scale, endScale: T.Scale) {
+    public init(node: T, duration: TimeInterval, from start: T.Scale, to end: T.Scale) {
         previousScale = node.scale
-        self.startScale = startScale
-        delta = endScale - startScale
+        startScale = start
+        delta = end - start
         super.init(node: node, duration: duration)
     }
     
@@ -87,10 +87,10 @@ public class SKTRotateEffect<T: EffectNode>: SKTEffect<T> {
     var delta: T.Rotation
     var previousAngle: T.Rotation
     
-    public init(node: T, duration: TimeInterval, startAngle: T.Rotation, endAngle: T.Rotation) {
+    public init(node: T, duration: TimeInterval, from start: T.Rotation, to end: T.Rotation) {
         previousAngle = node.rotation
-        self.startAngle = startAngle
-        delta = endAngle - startAngle
+        startAngle = start
+        delta = end - start
         super.init(node: node, duration: duration)
     }
     
