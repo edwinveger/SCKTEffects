@@ -6,4 +6,6 @@
 //  Copyright © 2018 pierreCode. All rights reserved.
 //
 
-extension CGFloat: Mathable { }
+extension CGFloat: Mathable {
+    public static var zero: CGFloat { return 0.0 }
+}

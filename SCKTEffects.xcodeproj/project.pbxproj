@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C29369520F4916D00679D2D /* SKTMoveEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C29369420F4916D00679D2D /* SKTMoveEffect.swift */; };
+		0C29369820F4918600679D2D /* SKTScaleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C29369620F4918600679D2D /* SKTScaleEffect.swift */; };
+		0C29369920F4918600679D2D /* SKTRotateEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C29369720F4918600679D2D /* SKTRotateEffect.swift */; };
 		0CB3DC3320F3AA160012A12F /* SCKTEffectsCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB3DC3120F3AA160012A12F /* SCKTEffectsCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0CB3DC3B20F3AAA80012A12F /* SKTEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB3DC3920F3AAA80012A12F /* SKTEffect.swift */; };
 		0CB3DC3C20F3AAA80012A12F /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB3DC3A20F3AAA80012A12F /* SKTTimingFunctions.swift */; };
@@ -67,6 +70,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C29369420F4916D00679D2D /* SKTMoveEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTMoveEffect.swift; sourceTree = "<group>"; };
+		0C29369620F4918600679D2D /* SKTScaleEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTScaleEffect.swift; sourceTree = "<group>"; };
+		0C29369720F4918600679D2D /* SKTRotateEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTRotateEffect.swift; sourceTree = "<group>"; };
 		0CB3DC2E20F3AA160012A12F /* SCKTEffectsCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCKTEffectsCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CB3DC3120F3AA160012A12F /* SCKTEffectsCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCKTEffectsCore.h; sourceTree = "<group>"; };
 		0CB3DC3220F3AA160012A12F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 				0CB3DC3220F3AA160012A12F /* Info.plist */,
 				0CB3DC3120F3AA160012A12F /* SCKTEffectsCore.h */,
 				0CB3DC3920F3AAA80012A12F /* SKTEffect.swift */,
+				0C29369420F4916D00679D2D /* SKTMoveEffect.swift */,
+				0C29369720F4918600679D2D /* SKTRotateEffect.swift */,
+				0C29369620F4918600679D2D /* SKTScaleEffect.swift */,
 				0CB3DC3A20F3AAA80012A12F /* SKTTimingFunctions.swift */,
 			);
 			path = SCKTEffectsCore;
@@ -390,8 +399,11 @@
 			files = (
 				0CB3DC6620F3C3A50012A12F /* CGFloat+Mathable.swift in Sources */,
 				0CB3DC3C20F3AAA80012A12F /* SKTTimingFunctions.swift in Sources */,
+				0C29369820F4918600679D2D /* SKTScaleEffect.swift in Sources */,
 				0CB3DC3B20F3AAA80012A12F /* SKTEffect.swift in Sources */,
 				0CB3DC6420F3C1C70012A12F /* CGPoint+Mathable.swift in Sources */,
+				0C29369520F4916D00679D2D /* SKTMoveEffect.swift in Sources */,
+				0C29369920F4918600679D2D /* SKTRotateEffect.swift in Sources */,
 				0CB3DC3E20F3AD300012A12F /* EffectNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

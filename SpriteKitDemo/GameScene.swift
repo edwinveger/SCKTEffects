@@ -30,46 +30,36 @@ class GameScene: SKScene {
         node.position = point
         addChild(node)
         
-        let effect: SKTEffect<SKNode>
+        let timingFunction = getTimingFunction()        
+        let action: SKAction
         
         switch counter % 3 {
         case 0:
-            effect = SKTMoveEffect(
-                node: node,
-                duration: 1.5,
-                from: node.position,
-                to: CGPoint(x: size.width / 2, y: size.height / 2)
-            )
+            let effect = node.moveEffect()
+                .withDuration(1.5)
+                .using(timingFunction)
+                .ending(at: CGPoint(x: size.width / 2, y: size.height / 2))
+            
+            action = effect.asAction()
         case 1:
-            effect = SKTRotateEffect(
-                node: node,
-                duration: 2.5,
-                from: node.rotation,
-                to: .pi
-            )
+            let effect = node.rotateEffect()
+                .withDuration(2.5)
+                .using(timingFunction)
+                .ending(at: .pi)
+            
+            action = effect.asAction()
         default:
-            effect = SKTScaleEffect(
-                node: node,
-                duration: 1.0,
-                from: node.scale,
-                to: node.scale * 2.3
-            )
-        }
-        
-        switch counter % 4 {
-        case 0:
-            effect.timingFunction = SKTTimingFunction.bounceEaseOut
-        case 1:
-            effect.timingFunction = SKTTimingFunction.elasticEaseOut
-        case 2:
-            effect.timingFunction = SKTTimingFunction.sineEaseInOut
-        default:
-            effect.timingFunction = SKTTimingFunction.cubicEaseInOut
+            let effect = node.scaleEffect()
+                .withDuration(1.0)
+                .using(timingFunction)
+                .ending(at: node.scale * 2.3)
+            
+            action = effect.asAction()
         }
         
         node.run(
             .sequence([
-                effect.asAction(),
+                action,
                 .fadeOut(withDuration: 1.0),
                 .removeFromParent()
                 ])
@@ -80,5 +70,18 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(at: t.location(in: self)) }
+    }
+    
+    private func getTimingFunction() -> TimingFunction {
+        switch counter % 4 {
+        case 0:
+            return SKTTimingFunction.bounceEaseOut
+        case 1:
+            return SKTTimingFunction.elasticEaseOut
+        case 2:
+            return SKTTimingFunction.sineEaseInOut
+        default:
+            return SKTTimingFunction.cubicEaseInOut
+        }
     }
 }

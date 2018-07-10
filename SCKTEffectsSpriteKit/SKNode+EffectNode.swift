@@ -35,7 +35,7 @@ extension SKNode: EffectNode {
     }
 }
 
-extension SKTEffect where T == SKNode {
+extension SKTEffect where Node: SKNode {
     
     public func asAction() -> SKAction {
         return SKAction.action(with: self)
@@ -45,10 +45,10 @@ extension SKTEffect where T == SKNode {
 /// Wrapper that allows you to use SKTEffect objects as regular SKActions.
 public extension SKAction {
     
-    public class func action(with effect: SKTEffect<SKNode>) -> SKAction {
+    public class func action<E: SKTEffect>(with effect: E) -> SKAction {
         return SKAction.customAction(withDuration: effect.duration) { node, elapsedTime in
             var t = elapsedTime / CGFloat(effect.duration)
-            t = effect.timingFunction?(t) ?? t // the magic happens here
+            t = effect.timingFunction(t) // the magic happens here
             effect.update(t)
         }
     }

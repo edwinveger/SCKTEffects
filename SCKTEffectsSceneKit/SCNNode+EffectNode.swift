@@ -15,7 +15,7 @@ extension SCNNode: EffectNode {
     public typealias Scale = SCNVector3
 }
 
-extension SKTEffect where T == SCNNode {
+extension SKTEffect where Node: SCNNode {
     
     public func asAction() -> SCNAction {
         return SCNAction.action(with: self)
@@ -25,10 +25,10 @@ extension SKTEffect where T == SCNNode {
 /// Wrapper that allows you to use SKTEffect objects as regular SCNActions.
 public extension SCNAction {
     
-    public class func action(with effect: SKTEffect<SCNNode>) -> SCNAction {
+    public class func action<E: SKTEffect>(with effect: E) -> SCNAction {
         return SCNAction.customAction(duration: effect.duration) { node, elapsedTime in
             var t = elapsedTime / CGFloat(effect.duration)
-            t = effect.timingFunction?(t) ?? t // the magic happens here
+            t = effect.timingFunction(t) // the magic happens here
             effect.update(t)
         }
     }

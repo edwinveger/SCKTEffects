@@ -11,6 +11,10 @@ import SCKTEffectsCore
 
 extension SCNVector3: Mathable {
     
+    public static var zero: SCNVector3 {
+        return SCNVector3(x: 0, y: 0, z: 0)
+    }
+    
     public static func + (lhs: SCNVector3, rhs: SCNVector3) -> SCNVector3 {
         return SCNVector3(
             x: lhs.x + rhs.x,
