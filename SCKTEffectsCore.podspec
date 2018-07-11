@@ -19,6 +19,7 @@ animated using custom animation functions. You wouldn't use this on its own unle
 It is based on SKTEffects by raywenderlich.com.
                        DESC
 
+  s.swift_version    = '3.0'
   s.homepage         = 'https://github.com/edwinveger/SCKTEffects'
   s.license          = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author           = { 'edwinveger' => 'info@pierrecode.nl' }

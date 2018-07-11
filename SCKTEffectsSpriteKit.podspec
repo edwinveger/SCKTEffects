@@ -11,6 +11,7 @@ Builds on SCKTEffectsCore to provide custom animation functions for SKNodes.
   s.license          = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author           = { 'edwinveger' => 'info@pierrecode.nl' }
   s.source           = { :git => 'https://github.com/edwinveger/SCKTEffects.git', :tag => s.version.to_s }
+  s.swift_version    = '3.0'
   s.ios.deployment_target = '8.0'
   s.source_files = 'SCKTEffectsSpriteKit/Classes/**/*'
   s.frameworks = 'SpriteKit'
