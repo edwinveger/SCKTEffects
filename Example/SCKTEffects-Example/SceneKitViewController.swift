@@ -19,6 +19,7 @@ class SceneKitViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         tabBarItem.title = "Scene Kit"
+        tabBarItem.image = #imageLiteral(resourceName: "scenekit-icon")
     }
     
     required init?(coder aDecoder: NSCoder) {

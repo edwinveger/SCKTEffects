@@ -18,6 +18,7 @@ class SpriteKitViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         tabBarItem.title = "Sprite Kit"
+        tabBarItem.image = #imageLiteral(resourceName: "spritekit-icon")
     }
     
     required init?(coder aDecoder: NSCoder) {
