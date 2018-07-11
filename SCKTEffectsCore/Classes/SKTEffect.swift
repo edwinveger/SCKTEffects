@@ -25,19 +25,28 @@ public typealias TimingFunction = ((CGFloat) -> CGFloat)
 /// A simple struct containing several effect configuration properties.
 public struct EffectConfiguration<T: Mathable> {
     
+    enum Method<T> {
+        /// Animates by a certain delta value from the current start value.
+        case by(T)
+        /// Animates to a certain end value from the current start value.
+        case to(T)
+    }
+    
     /// The start value of the effect.
-    var start: T
+    internal var start: T
+    
+    var method: Method<T>
     
     var delta: T {
         get {
-            return end - start
-        }
-        set {
-            end = start + delta
+            switch method {
+            case .by(let delta):
+                return delta
+            case .to(let end):
+                return end - start
+            }
         }
     }
-    
-    var end: T
     
     /// Do not set manually.
     internal var previous: T
@@ -54,6 +63,8 @@ public protocol SKTEffect: class {
     
     var timingFunction: TimingFunction { get set }
     
+    var started: Bool { get set }
+    
     func update(_ t: CGFloat)
 }
 
@@ -68,22 +79,13 @@ extension SKTEffect {
         return self
     }
     
-    /// Adjust the starting value.
-    ///
-    /// - Parameter start: The new starting value.
-    /// - Returns: An effect object.
-    public func starting(at start: Property) -> Self {
-        configuration.start = start
-        return self
-    }
-
     /// Animate a specific change.
     /// - Note: This will affect the `end` of the animation.
     ///
     /// - Parameter change: The change you wish to animate.
     /// - Returns: An effect object.
-    public func animating(_ change: Property) -> Self {
-        configuration.delta = change
+    public func by(_ change: Property) -> Self {
+        configuration.method = .by(change)
         return self
     }
     
@@ -100,8 +102,8 @@ extension SKTEffect {
     ///
     /// - Parameter end: The new ending value.
     /// - Returns: An effect object.
-    public func ending(at end: Property) -> Self {
-        configuration.end = end
+    public func to(_ end: Property) -> Self {
+        configuration.method = .to(end)
         return self
     }
 }

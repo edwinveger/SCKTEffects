@@ -15,22 +15,23 @@ extension SKNode: EffectNode {
     public typealias Rotation = CGFloat
     public typealias Scale = CGPoint
     
-    public var scale: CGPoint {
+    public var sckt_position: CGPoint {
+        get { return position }
+        set { position = newValue }
+    }
+    
+    public var sckt_rotation: CGFloat {
+        get { return zRotation }
+        set { zRotation = newValue }
+    }
+    
+    public var sckt_scale: CGPoint {
         get {
             return CGPoint(x: xScale, y: yScale)
         }
         set {
             xScale = newValue.x
             yScale = newValue.y
-        }
-    }
-    
-    public var rotation: CGFloat {
-        get {
-            return zRotation
-        }
-        set {
-            zRotation = newValue
         }
     }
 }
@@ -50,6 +51,10 @@ public extension SKAction {
             var t = elapsedTime / CGFloat(effect.duration)
             t = effect.timingFunction(t) // the magic happens here
             effect.update(t)
+            
+            if t == 1.0 {
+                effect.started = false
+            }
         }
     }
 }

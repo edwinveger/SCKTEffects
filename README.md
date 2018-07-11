@@ -71,7 +71,7 @@ import SCKTEffectsSceneKit
 let node = SCNNode()
 
 let effect = node.moveEffect()
-    .ending(at: CGPoint(x: size.width / 2, y: size.height / 2))
+    .animating(SCNVector3(x: 10, y: 5, z: 0))
 
 node.runAction(effect.asAction())
 ```

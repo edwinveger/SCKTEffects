@@ -18,22 +18,30 @@ public class SKTRotateEffect<T: EffectNode>: SKTEffect {
     public var configuration: EffectConfiguration<Property>
     public var timingFunction: TimingFunction = SKTTimingFunction.linear
     
+    public var started = false
+    
     public init(node: T) {
         self.node = node
         
         configuration = EffectConfiguration(
-            start: node.rotation,
-            end: node.rotation,
-            previous: node.rotation
+            start: node.sckt_rotation,
+            method: .by(Property.zero),
+            previous: node.sckt_rotation
         )
     }
     
     public func update(_ t: CGFloat) {
+        if !started {
+            configuration.start = node.sckt_rotation
+            configuration.previous = node.sckt_rotation
+            started = true
+        }
+        
         let newAngle = configuration.start + configuration.delta * t
         let diff = newAngle - configuration.previous
         configuration.previous = newAngle
         
         // update the node
-        node.rotation += diff
+        node.sckt_rotation += diff
     }
 }

@@ -13,6 +13,21 @@ extension SCNNode: EffectNode {
     public typealias Position = SCNVector3
     public typealias Rotation = SCNVector4
     public typealias Scale = SCNVector3
+    
+    public var sckt_position: Position {
+        get { return position }
+        set { position = newValue }
+    }
+    
+    public var sckt_rotation: Rotation {
+        get { return rotation }
+        set { rotation = newValue }
+    }
+    
+    public var sckt_scale: Scale {
+        get { return scale }
+        set { scale = newValue }
+    }
 }
 
 extension SKTEffect where Node: SCNNode {
@@ -30,6 +45,10 @@ public extension SCNAction {
             var t = elapsedTime / CGFloat(effect.duration)
             t = effect.timingFunction(t) // the magic happens here
             effect.update(t)
+            
+            if t == 1.0 {
+                effect.started = false
+            }
         }
     }
 }

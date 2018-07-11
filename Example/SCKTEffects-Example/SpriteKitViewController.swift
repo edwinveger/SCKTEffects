@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  SpriteKitViewController.swift
 //  SpriteKitDemo
 //
 //  Created by Edwin on 09-07-18.
@@ -10,10 +10,19 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
+class SpriteKitViewController: UIViewController {
 
     let skView = SKView()
     let scene = GameScene()
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        tabBarItem.title = "Sprite Kit"
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = skView

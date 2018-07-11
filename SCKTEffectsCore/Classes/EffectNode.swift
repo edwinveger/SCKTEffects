@@ -13,9 +13,9 @@ public protocol EffectNode: class {
     associatedtype Rotation: Mathable
     associatedtype Scale: Mathable
     
-    var position: Position { get set }
-    var rotation: Rotation { get set }
-    var scale: Scale { get set }
+    var sckt_position: Position { get set }
+    var sckt_rotation: Rotation { get set }
+    var sckt_scale: Scale { get set }
 }
 
 public extension EffectNode {

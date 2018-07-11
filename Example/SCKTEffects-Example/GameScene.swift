@@ -38,21 +38,21 @@ class GameScene: SKScene {
             let effect = node.moveEffect()
                 .withDuration(1.5)
                 .using(timingFunction)
-                .ending(at: CGPoint(x: size.width / 2, y: size.height / 2))
+                .to(CGPoint(x: size.width / 2, y: size.height / 2))
             
             action = effect.asAction()
         case 1:
             let effect = node.rotateEffect()
                 .withDuration(2.5)
                 .using(timingFunction)
-                .ending(at: .pi)
+                .to(.pi)
             
             action = effect.asAction()
         default:
             let effect = node.scaleEffect()
                 .withDuration(1.0)
                 .using(timingFunction)
-                .ending(at: node.scale * 2.3)
+                .to(node.sckt_scale * 2.3)
             
             action = effect.asAction()
         }
