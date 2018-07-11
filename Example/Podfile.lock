@@ -1,0 +1,28 @@
+PODS:
+  - SCKTEffectsCore (0.1.0)
+  - SCKTEffectsSceneKit (0.1.0):
+    - SCKTEffectsCore
+  - SCKTEffectsSpriteKit (0.1.0):
+    - SCKTEffectsCore
+
+DEPENDENCIES:
+  - SCKTEffectsCore (from `../`)
+  - SCKTEffectsSceneKit (from `../`)
+  - SCKTEffectsSpriteKit (from `../`)
+
+EXTERNAL SOURCES:
+  SCKTEffectsCore:
+    :path: "../"
+  SCKTEffectsSceneKit:
+    :path: "../"
+  SCKTEffectsSpriteKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SCKTEffectsCore: 82bda437a6ff4ddbc50acf8366416788546b5307
+  SCKTEffectsSceneKit: 2ad51153207dc6e8572026fb365db4624af46633
+  SCKTEffectsSpriteKit: b0f52da434404a078ff2cc6cd55e3997a9023dea
+
+PODFILE CHECKSUM: 4f360d6e4ea3c7644212e79c394ebf96a2f30203
+
+COCOAPODS: 1.5.3

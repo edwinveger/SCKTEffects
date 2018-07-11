@@ -6,14 +6,11 @@
 //  Copyright © 2018 pierreCode. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import Foundation;
+@import CoreGraphics;
 
 //! Project version number for SCKTEffects.
-FOUNDATION_EXPORT double SCKTEffectsVersionNumber;
+FOUNDATION_EXPORT double SCKTEffectsCoreVersionNumber;
 
 //! Project version string for SCKTEffects.
-FOUNDATION_EXPORT const unsigned char SCKTEffectsVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <SCKTEffects/PublicHeader.h>
-
-
+FOUNDATION_EXPORT const unsigned char SCKTEffectsCoreVersionString[];

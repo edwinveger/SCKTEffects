@@ -26,11 +26,7 @@ public typealias TimingFunction = ((CGFloat) -> CGFloat)
 public struct EffectConfiguration<T: Mathable> {
     
     /// The start value of the effect.
-    var start: T {
-        didSet {
-            delta = end - start
-        }
-    }
+    var start: T
     
     var delta: T {
         get {
@@ -41,14 +37,10 @@ public struct EffectConfiguration<T: Mathable> {
         }
     }
     
-    var end: T {
-        didSet {
-            delta = end - start
-        }
-    }
+    var end: T
     
     /// Do not set manually.
-    var previous: T
+    internal var previous: T
 }
 
 /// Allows you to perform actions with custom timing functions.
