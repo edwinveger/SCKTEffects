@@ -14,23 +14,17 @@ public class SKTMoveEffect<T: EffectNode>: SKTEffect {
     public typealias Node = T
     public typealias Property = Node.Position
     
-    public unowned var node: Node
-    public var configuration: EffectConfiguration<Property>
+    public var configuration: EffectConfiguration<Property> = EffectConfiguration(
+        start: .zero,
+        method: .by(.zero),
+        previous: .zero
+    )
+    
     public var timingFunction: TimingFunction = SKTTimingFunction.linear
     
     public var started = false
     
-    public init(node: T) {
-        self.node = node
-        
-        configuration = EffectConfiguration(
-            start: node.sckt_position,
-            method: .by(Property.zero),
-            previous: node.sckt_position
-        )
-    }
-    
-    public func update(_ t: CGFloat) {
+    public func update(node: T, at time: CGFloat) {
         if !started {
             // this is the start of the animation, so keep the current position as the starting position
             configuration.start = node.sckt_position
@@ -39,7 +33,7 @@ public class SKTMoveEffect<T: EffectNode>: SKTEffect {
         }
         
         // This allows multiple SKTMoveEffect objects to modify the same node at the same time.
-        let newPosition = configuration.start + configuration.delta * t
+        let newPosition = configuration.start + configuration.delta * time
         let diff = newPosition - configuration.previous
         configuration.previous = newPosition
         

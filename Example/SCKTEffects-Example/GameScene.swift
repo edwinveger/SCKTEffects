@@ -35,21 +35,21 @@ class GameScene: SKScene {
         
         switch counter % 3 {
         case 0:
-            let effect = node.moveEffect()
+            let effect = SKNode.moveEffect()
                 .withDuration(1.5)
                 .using(timingFunction)
                 .to(CGPoint(x: size.width / 2, y: size.height / 2))
             
             action = effect.asAction()
         case 1:
-            let effect = node.rotateEffect()
+            let effect = SKNode.rotateEffect()
                 .withDuration(2.5)
                 .using(timingFunction)
                 .to(.pi)
             
             action = effect.asAction()
         default:
-            let effect = node.scaleEffect()
+            let effect = SKNode.scaleEffect()
                 .withDuration(1.0)
                 .using(timingFunction)
                 .to(node.sckt_scale * 2.3)

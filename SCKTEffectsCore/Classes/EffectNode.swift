@@ -22,23 +22,23 @@ public extension EffectNode {
     
     /// A convenience constructor for the move effect, supporting custom timing functions.
     ///
-    /// - Returns: A scale effect configured with the receiver.
-    public func moveEffect() -> SKTMoveEffect<Self> {
-        return SKTMoveEffect<Self>(node: self)
+    /// - Returns: A scale effect.
+    public static func moveEffect() -> SKTMoveEffect<Self> {
+        return SKTMoveEffect<Self>()
     }
 
     /// A convenience constructor for the rotate effect, supporting custom timing functions.
     ///
-    /// - Returns: A scale effect configured with the receiver.
-    public func rotateEffect() -> SKTRotateEffect<Self> {
-        return SKTRotateEffect<Self>(node: self)
+    /// - Returns: A scale effect.
+    public static func rotateEffect() -> SKTRotateEffect<Self> {
+        return SKTRotateEffect<Self>()
     }
     
     /// A convenience constructor for the scale effect, supporting custom timing functions.
     ///
-    /// - Returns: A scale effect configured with the receiver.
-    public func scaleEffect() -> SKTScaleEffect<Self> {
-        return SKTScaleEffect<Self>(node: self)
+    /// - Returns: A scale effect.
+    public static func scaleEffect() -> SKTScaleEffect<Self> {
+        return SKTScaleEffect<Self>()
     }
 }
 

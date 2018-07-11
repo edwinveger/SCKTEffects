@@ -48,11 +48,15 @@ public extension SKAction {
     
     public class func action<E: SKTEffect>(with effect: E) -> SKAction {
         return SKAction.customAction(withDuration: effect.duration) { node, elapsedTime in
+            // in practice, this conversion always succeeds
+            guard let node = node as? E.Node else { return }
+            
             var t = elapsedTime / CGFloat(effect.duration)
             t = effect.timingFunction(t) // the magic happens here
-            effect.update(t)
+            effect.update(node: node, at: t)
             
             if t == 1.0 {
+                // reset the effect
                 effect.started = false
             }
         }

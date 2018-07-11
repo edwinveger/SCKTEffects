@@ -43,13 +43,13 @@ class SceneKitViewController: UIViewController {
         
         let upPosition = SCNVector3(x: 0, y: 5, z: 0)
         
-        let moveUp = node.moveEffect()
+        let moveUp = SCNNode.moveEffect()
             .to(upPosition)
             .withDuration(2)
             .using(SKTTimingFunction.elasticEaseInOut)
             .asAction()
 
-        let moveDown = node.moveEffect()
+        let moveDown = SCNNode.moveEffect()
             .to(.zero)
             .withDuration(2)
             .using(SKTTimingFunction.bounceEaseOut)

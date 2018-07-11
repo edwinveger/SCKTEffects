@@ -57,7 +57,6 @@ public protocol SKTEffect: class {
     associatedtype Node: EffectNode
     associatedtype Property: Mathable
     
-    var node: Node { get }
     var duration: TimeInterval { get set }
     var configuration: EffectConfiguration<Property> { get set }
     
@@ -65,7 +64,7 @@ public protocol SKTEffect: class {
     
     var started: Bool { get set }
     
-    func update(_ t: CGFloat)
+    func update(node: Node, at time: CGFloat)
 }
 
 extension SKTEffect {

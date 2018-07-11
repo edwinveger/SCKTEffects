@@ -14,30 +14,24 @@ public class SKTRotateEffect<T: EffectNode>: SKTEffect {
     public typealias Node = T
     public typealias Property = Node.Rotation
     
-    public unowned var node: Node
-    public var configuration: EffectConfiguration<Property>
+    public var configuration: EffectConfiguration<Property> = EffectConfiguration(
+        start: .zero,
+        method: .by(.zero),
+        previous: .zero
+    )
+    
     public var timingFunction: TimingFunction = SKTTimingFunction.linear
     
     public var started = false
     
-    public init(node: T) {
-        self.node = node
-        
-        configuration = EffectConfiguration(
-            start: node.sckt_rotation,
-            method: .by(Property.zero),
-            previous: node.sckt_rotation
-        )
-    }
-    
-    public func update(_ t: CGFloat) {
+    public func update(node: T, at time: CGFloat) {
         if !started {
             configuration.start = node.sckt_rotation
             configuration.previous = node.sckt_rotation
             started = true
         }
         
-        let newAngle = configuration.start + configuration.delta * t
+        let newAngle = configuration.start + configuration.delta * time
         let diff = newAngle - configuration.previous
         configuration.previous = newAngle
         
