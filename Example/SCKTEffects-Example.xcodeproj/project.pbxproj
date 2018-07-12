@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C26B79F20F683D000E24F4F /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C26B79E20F683D000E24F4F /* art.scnassets */; };
 		0C2936CC20F5144900679D2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2936CB20F5144900679D2D /* AppDelegate.swift */; };
 		0C2936D320F5144A00679D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C2936D220F5144A00679D2D /* Assets.xcassets */; };
 		0C2936D620F5144A00679D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C2936D420F5144A00679D2D /* LaunchScreen.storyboard */; };
 		0C2936DF20F5154200679D2D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2936DD20F5154200679D2D /* GameScene.swift */; };
 		0C2936E020F5154200679D2D /* SpriteKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2936DE20F5154200679D2D /* SpriteKitViewController.swift */; };
 		0C29370020F5E47800679D2D /* SceneKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2936FF20F5E47800679D2D /* SceneKitViewController.swift */; };
+		0C91B2F520F7B510008CDA8F /* FunctionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C91B2F420F7B510008CDA8F /* FunctionList.swift */; };
 		C5088984F40A6CB18D755983 /* Pods_SCKTEffects_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6546D82E85C366D6D4D54D /* Pods_SCKTEffects_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C26B79E20F683D000E24F4F /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		0C2936C820F5144900679D2D /* SCKTEffects-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SCKTEffects-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C2936CB20F5144900679D2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C2936D220F5144A00679D2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -25,6 +28,7 @@
 		0C2936DD20F5154200679D2D /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		0C2936DE20F5154200679D2D /* SpriteKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteKitViewController.swift; sourceTree = "<group>"; };
 		0C2936FF20F5E47800679D2D /* SceneKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneKitViewController.swift; sourceTree = "<group>"; };
+		0C91B2F420F7B510008CDA8F /* FunctionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionList.swift; sourceTree = "<group>"; };
 		30059BA91403B79FE2F069B4 /* Pods-SCKTEffects-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCKTEffects-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SCKTEffects-Example/Pods-SCKTEffects-Example.release.xcconfig"; sourceTree = "<group>"; };
 		6C6546D82E85C366D6D4D54D /* Pods_SCKTEffects_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SCKTEffects_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		741C8506294EF317E0B9EEAF /* Pods-SCKTEffects-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCKTEffects-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SCKTEffects-Example/Pods-SCKTEffects-Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,11 +71,13 @@
 			children = (
 				0C2936CB20F5144900679D2D /* AppDelegate.swift */,
 				0C2936D220F5144A00679D2D /* Assets.xcassets */,
+				0C26B79E20F683D000E24F4F /* art.scnassets */,
 				0C2936DD20F5154200679D2D /* GameScene.swift */,
 				0C2936D720F5144A00679D2D /* Info.plist */,
 				0C2936D420F5144A00679D2D /* LaunchScreen.storyboard */,
 				0C2936FF20F5E47800679D2D /* SceneKitViewController.swift */,
 				0C2936DE20F5154200679D2D /* SpriteKitViewController.swift */,
+				0C91B2F420F7B510008CDA8F /* FunctionList.swift */,
 			);
 			path = "SCKTEffects-Example";
 			sourceTree = "<group>";
@@ -155,6 +161,7 @@
 			files = (
 				0C2936D620F5144A00679D2D /* LaunchScreen.storyboard in Resources */,
 				0C2936D320F5144A00679D2D /* Assets.xcassets in Resources */,
+				0C26B79F20F683D000E24F4F /* art.scnassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +218,7 @@
 				0C29370020F5E47800679D2D /* SceneKitViewController.swift in Sources */,
 				0C2936E020F5154200679D2D /* SpriteKitViewController.swift in Sources */,
 				0C2936DF20F5154200679D2D /* GameScene.swift in Sources */,
+				0C91B2F520F7B510008CDA8F /* FunctionList.swift in Sources */,
 				0C2936CC20F5144900679D2D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

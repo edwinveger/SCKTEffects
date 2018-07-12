@@ -19,6 +19,7 @@ class SpriteKitViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         tabBarItem.title = "Sprite Kit"
         tabBarItem.image = #imageLiteral(resourceName: "spritekit-icon")
+        restorationIdentifier = String(describing: type(of: self))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,7 +27,22 @@ class SpriteKitViewController: UIViewController {
     }
     
     override func loadView() {
-        view = skView
+        view = UIView()
+        
+        view.addSubview(skView)
+        
+        skView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // pin skView to safe area, otherwise debug options are not visible
+        let constraints =
+        [
+            skView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            skView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            skView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            skView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
     }
     
     override func viewDidLoad() {
@@ -37,9 +53,14 @@ class SpriteKitViewController: UIViewController {
         // Present the scene
         skView.presentScene(scene)
         
+        // important performance optimization
         skView.ignoresSiblingOrder = true
+        
+        // debug options
         skView.showsFPS = true
+        skView.showsDrawCount = true
         skView.showsNodeCount = true
+        skView.showsQuadCount = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
